@@ -37,11 +37,11 @@ public class EfDbManager : IDbManager
 
     public List<Contact> GetContacts()
     {
+        List<Contact> contactList;
         using (var db = new ContactContext())
         {
-            var contactList = db.Contacts.ToList();
-
-            return contactList;
+            contactList = db.Contacts.ToList();
         }
+        return contactList;
     }
 }
