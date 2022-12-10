@@ -1,5 +1,6 @@
 using PhoneBookConsole.Data;
 using PhoneBookConsole.Input;
+using PhoneBookConsole.Models;
 
 namespace PhoneBookConsole.PhoneBookService;
 
@@ -51,17 +52,23 @@ public class ContactManager
         }
     }
     
-    private void DeleteContact()
+    private void AddNewContact()
     {
-        throw new NotImplementedException();
-    }
+        Console.Write("Enter name: ");
+        var name = _input.GetInput();
+        Console.Write("Enter phone number: ");
+        var phoneNumber = _input.GetInput();
 
+        var contact = new Contact { Name = name, PhoneNumber = phoneNumber };
+        _efDbManager.AddNewContact(contact);
+    }
+    
     private void EditContact()
     {
         throw new NotImplementedException();
     }
-
-    private void AddNewContact()
+    
+    private void DeleteContact()
     {
         throw new NotImplementedException();
     }
