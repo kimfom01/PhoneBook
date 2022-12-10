@@ -50,10 +50,13 @@ public class ContactManager
             Console.WriteLine(contact.PhoneNumber);
             Console.WriteLine();
         }
+        Console.Write("Press Enter to continue: ");
+        Console.ReadLine();
     }
     
     private void AddNewContact()
     {
+        Console.Clear();
         Console.Write("Enter name: ");
         var name = _input.GetInput();
         Console.Write("Enter phone number: ");
@@ -65,6 +68,7 @@ public class ContactManager
     
     private void EditContact()
     {
+        Console.Clear();
         Console.Write("Enter name of contact to edit: ");
         var oldName = _input.GetInput();
         Console.Write("Enter new name: ");
@@ -79,6 +83,7 @@ public class ContactManager
     
     private void DeleteContact()
     {
+        Console.Clear();
         Console.Write("Enter name of contact to delete: ");
         var contactToDelete = _input.GetInput();
 
