@@ -14,4 +14,24 @@ public class Menus
         Console.WriteLine("\nType your choice and hit Enter");
         Console.Write("Your choice? ");
     }
+
+    public static void DisplayViewAllContactsMenu()
+    {
+        throw new NotImplementedException();
+    }
+    
+    public static void DisplayAddNewContactMenu()
+    {
+        throw new NotImplementedException();
+    }
+    
+    public static void DisplayEditContactMenu()
+    {
+        throw new NotImplementedException();
+    }
+    
+    public static void DisplayDeleteContactMenu()
+    {
+        throw new NotImplementedException();
+    }
 }
