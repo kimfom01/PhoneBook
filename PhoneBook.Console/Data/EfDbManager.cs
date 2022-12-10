@@ -1,6 +1,6 @@
-using PhoneBook.Console.Models;
+using PhoneBookConsole.Models;
 
-namespace PhoneBook.Console.Data;
+namespace PhoneBookConsole.Data;
 
 public class EfDbManager : IDbManager
 {

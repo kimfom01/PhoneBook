@@ -1,8 +1,8 @@
 using System.Configuration;
 using Microsoft.EntityFrameworkCore;
-using PhoneBook.Console.Models;
+using PhoneBookConsole.Models;
 
-namespace PhoneBook.Console.DbContexts;
+namespace PhoneBookConsole.DbContexts;
 
 public class ContactContext : DbContext
 {

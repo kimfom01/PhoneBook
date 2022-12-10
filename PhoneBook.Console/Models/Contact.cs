@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace PhoneBook.Console.Models;
+namespace PhoneBookConsole.Models;
 
 public class Contact
 {
