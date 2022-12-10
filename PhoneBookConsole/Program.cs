@@ -2,8 +2,7 @@
 
 using PhoneBookConsole.PhoneBookService;
 
-Console.WriteLine("Hello, World!");
-
-Menus.DisplayMainMenu();
+var contactManager = new ContactManager();
+contactManager.LaunchProgram();
 
 // TODO: Implement ContactManager methods
