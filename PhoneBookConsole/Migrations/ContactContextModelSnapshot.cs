@@ -7,7 +7,7 @@ using PhoneBookConsole.DbContexts;
 
 #nullable disable
 
-namespace PhoneBook.Console.Migrations
+namespace PhoneBookConsole.Migrations
 {
     [DbContext(typeof(ContactContext))]
     partial class ContactContextModelSnapshot : ModelSnapshot

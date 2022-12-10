@@ -8,11 +8,11 @@ using PhoneBookConsole.DbContexts;
 
 #nullable disable
 
-namespace PhoneBook.Console.Migrations
+namespace PhoneBookConsole.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    [Migration("20221209064034_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20221210162845_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
