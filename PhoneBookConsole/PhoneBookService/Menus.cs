@@ -1,6 +1,6 @@
 namespace PhoneBookConsole.PhoneBookService;
 
-public class Menus
+public static class Menus
 {
     public static void DisplayMainMenu()
     {
@@ -13,25 +13,5 @@ public class Menus
         Console.WriteLine("0 to close the app");
         Console.WriteLine("\nType your choice and hit Enter");
         Console.Write("Your choice? ");
-    }
-
-    public static void DisplayViewAllContactsMenu()
-    {
-        throw new NotImplementedException();
-    }
-    
-    public static void DisplayAddNewContactMenu()
-    {
-        throw new NotImplementedException();
-    }
-    
-    public static void DisplayEditContactMenu()
-    {
-        throw new NotImplementedException();
-    }
-    
-    public static void DisplayDeleteContactMenu()
-    {
-        throw new NotImplementedException();
     }
 }

@@ -42,12 +42,11 @@ public class ContactManager
     
     private void ViewAllContacts()
     {
+        Console.Clear();
         var contactList = _efDbManager.GetContacts();
         foreach (var contact in contactList)
         {
-            Console.WriteLine(contact.Id);
-            Console.WriteLine(contact.Name);
-            Console.WriteLine(contact.PhoneNumber);
+            Console.Write($"{contact.Name}: {contact.PhoneNumber}\n");
             Console.WriteLine();
         }
         Console.Write("Press Enter to continue: ");
