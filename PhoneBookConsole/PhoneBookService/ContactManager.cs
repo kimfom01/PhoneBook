@@ -79,6 +79,10 @@ public class ContactManager
     
     private void DeleteContact()
     {
-        throw new NotImplementedException();
+        Console.Write("Enter name of contact to delete: ");
+        var contactToDelete = _input.GetInput();
+
+        var contact = new Contact { Name = contactToDelete };
+        _efDbManager.DeleteContact(contact);
     }
 }
