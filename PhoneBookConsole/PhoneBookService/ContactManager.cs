@@ -1,3 +1,4 @@
+using PhoneBookConsole.Data;
 using PhoneBookConsole.Input;
 
 namespace PhoneBookConsole.PhoneBookService;
@@ -5,6 +6,7 @@ namespace PhoneBookConsole.PhoneBookService;
 public class ContactManager
 {
     private readonly UserInput _input = new UserInput();
+    private readonly IDbManager _efDbManager = new EfDbManager();
 
     public void LaunchProgram()
     {
@@ -36,7 +38,19 @@ public class ContactManager
             choice = _input.GetInput();
         }
     }
-
+    
+    private void ViewAllContacts()
+    {
+        var contactList = _efDbManager.GetContacts();
+        foreach (var contact in contactList)
+        {
+            Console.WriteLine(contact.Id);
+            Console.WriteLine(contact.Name);
+            Console.WriteLine(contact.PhoneNumber);
+            Console.WriteLine();
+        }
+    }
+    
     private void DeleteContact()
     {
         throw new NotImplementedException();
@@ -48,11 +62,6 @@ public class ContactManager
     }
 
     private void AddNewContact()
-    {
-        throw new NotImplementedException();
-    }
-
-    private void ViewAllContacts()
     {
         throw new NotImplementedException();
     }

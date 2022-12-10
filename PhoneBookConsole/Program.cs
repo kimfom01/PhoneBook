@@ -6,4 +6,4 @@ Console.WriteLine("Hello, World!");
 
 Menus.DisplayMainMenu();
 
-// TODO: Implement the EfDbManager methods and ContactManager methods
+// TODO: Implement ContactManager methods
