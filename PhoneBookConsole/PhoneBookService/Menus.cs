@@ -14,4 +14,15 @@ public static class Menus
         Console.WriteLine("\nType your choice and hit Enter");
         Console.Write("Your choice? ");
     }
+
+    public static void DisplayUpdateMenu()
+    {
+        Console.Clear();
+        Console.WriteLine("1 to edit name");
+        Console.WriteLine("2 to edit phone number");
+        Console.WriteLine("3 to edit email");
+        Console.WriteLine("0 to go back");
+        Console.WriteLine("\nType your choice and hit Enter");
+        Console.Write("Your choice? ");
+    }
 }
