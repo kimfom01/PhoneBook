@@ -18,9 +18,10 @@ public class EfDbManager : IDbManager
     {
         using (var db = new ContactContext())
         {
-            var old = db.Contacts.Where(x => x.Name == oldContact.Name).First();
+            var old = db.Contacts.First(x => x.Name == oldContact.Name);
             old.Name = newContact.Name;
             old.PhoneNumber = newContact.PhoneNumber;
+            old.Email = newContact.Email;
             db.SaveChanges();
         }
     }
@@ -29,7 +30,7 @@ public class EfDbManager : IDbManager
     {
         using (var db = new ContactContext())
         {
-            var toBeDeleted = db.Contacts.Where(x => x.Name == contact.Name).First();
+            var toBeDeleted = db.Contacts.First(x => x.Name == contact.Name);
             db.Remove(toBeDeleted);
             db.SaveChanges();
         }

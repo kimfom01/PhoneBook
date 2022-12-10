@@ -70,71 +70,21 @@ public class ContactManager
 
     private void EditContact()
     {
-        Menus.DisplayUpdateMenu();
-        var choice = _input.GetInput();
-        while (choice != "0")
-        {
-            switch (choice)
-            {
-                case "1":
-                    EditContactName();
-                    break;
-                case "2":
-                    EditContactPhoneNumber();
-                    break;
-                case "3":
-                    EditContactEmail();
-                    break;
-                default:
-                    Console.Clear();
-                    Console.WriteLine("Wrong input!");
-                    break;
-            }
-            
-            Menus.DisplayUpdateMenu();
-            choice = _input.GetInput();
-        }
-    }
-
-    private void EditContactName()
-    {
         Console.Clear();
         Console.Write("Enter name of contact to edit: ");
         var oldName = _input.GetInput();
         Console.Write("Enter new name: ");
         var newName = _input.GetInput();
-
-        var oldContact = new Contact { Name = oldName };
-        var newContact = new Contact { Name = newName };
-        _efDbManager.UpdateContact(oldContact, newContact);
-    }
-    
-    private void EditContactPhoneNumber()
-    {
-        Console.Clear();
-        Console.Write("Enter name of contact to edit: ");
-        var oldName = _input.GetInput();
         Console.Write("Enter new phone number: ");
         var newPhoneNumber = _input.GetInput();
-
-        var oldContact = new Contact { Name = oldName };
-        var newContact = new Contact { PhoneNumber = newPhoneNumber };
-        _efDbManager.UpdateContact(oldContact, newContact);
-    }
-
-    private void EditContactEmail()
-    {
-        Console.Clear();
-        Console.Write("Enter name of contact to edit: ");
-        var oldName = _input.GetInput();
         Console.Write("Enter new email: ");
         var newEmail = _input.GetInput();
 
         var oldContact = new Contact { Name = oldName };
-        var newContact = new Contact { Email = newEmail };
+        var newContact = new Contact { Name = newName, PhoneNumber = newPhoneNumber, Email = newEmail };
         _efDbManager.UpdateContact(oldContact, newContact);
     }
-    
+
     private void DeleteContact()
     {
         Console.Clear();
