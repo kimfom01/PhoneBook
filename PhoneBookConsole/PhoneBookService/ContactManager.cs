@@ -34,25 +34,26 @@ public class ContactManager
                     Console.WriteLine("Wrong input!");
                     break;
             }
-            
+
             Menus.DisplayMainMenu();
             choice = _input.GetInput();
         }
     }
-    
+
     private void ViewAllContacts()
     {
         Console.Clear();
         var contactList = _efDbManager.GetContacts();
         foreach (var contact in contactList)
         {
-            Console.Write($"{contact.Name}: {contact.PhoneNumber}\n");
+            Console.Write($"Name: {contact.Name} Phone Number: {contact.PhoneNumber} Email: {contact.Email}\n");
             Console.WriteLine();
         }
+
         Console.Write("Press Enter to continue: ");
         Console.ReadLine();
     }
-    
+
     private void AddNewContact()
     {
         Console.Clear();
@@ -60,23 +61,77 @@ public class ContactManager
         var name = _input.GetInput();
         Console.Write("Enter phone number: ");
         var phoneNumber = _input.GetInput();
+        Console.Write("Enter email: ");
+        var email = _input.GetInput();
 
-        var contact = new Contact { Name = name, PhoneNumber = phoneNumber };
+        var contact = new Contact { Name = name, PhoneNumber = phoneNumber, Email = email };
         _efDbManager.AddNewContact(contact);
     }
-    
+
     private void EditContact()
+    {
+        Menus.DisplayUpdateMenu();
+        var choice = _input.GetInput();
+        while (choice != "0")
+        {
+            switch (choice)
+            {
+                case "1":
+                    EditContactName();
+                    break;
+                case "2":
+                    EditContactPhoneNumber();
+                    break;
+                case "3":
+                    EditContactEmail();
+                    break;
+                default:
+                    Console.Clear();
+                    Console.WriteLine("Wrong input!");
+                    break;
+            }
+            
+            Menus.DisplayUpdateMenu();
+            choice = _input.GetInput();
+        }
+    }
+
+    private void EditContactName()
     {
         Console.Clear();
         Console.Write("Enter name of contact to edit: ");
         var oldName = _input.GetInput();
         Console.Write("Enter new name: ");
         var newName = _input.GetInput();
+
+        var oldContact = new Contact { Name = oldName };
+        var newContact = new Contact { Name = newName };
+        _efDbManager.UpdateContact(oldContact, newContact);
+    }
+    
+    private void EditContactPhoneNumber()
+    {
+        Console.Clear();
+        Console.Write("Enter name of contact to edit: ");
+        var oldName = _input.GetInput();
         Console.Write("Enter new phone number: ");
         var newPhoneNumber = _input.GetInput();
 
         var oldContact = new Contact { Name = oldName };
-        var newContact = new Contact { Name = newName, PhoneNumber = newPhoneNumber };
+        var newContact = new Contact { PhoneNumber = newPhoneNumber };
+        _efDbManager.UpdateContact(oldContact, newContact);
+    }
+
+    private void EditContactEmail()
+    {
+        Console.Clear();
+        Console.Write("Enter name of contact to edit: ");
+        var oldName = _input.GetInput();
+        Console.Write("Enter new email: ");
+        var newEmail = _input.GetInput();
+
+        var oldContact = new Contact { Name = oldName };
+        var newContact = new Contact { Email = newEmail };
         _efDbManager.UpdateContact(oldContact, newContact);
     }
     
