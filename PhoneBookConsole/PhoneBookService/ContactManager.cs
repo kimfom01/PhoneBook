@@ -65,7 +65,16 @@ public class ContactManager
     
     private void EditContact()
     {
-        throw new NotImplementedException();
+        Console.Write("Enter name of contact to edit: ");
+        var oldName = _input.GetInput();
+        Console.Write("Enter new name: ");
+        var newName = _input.GetInput();
+        Console.Write("Enter new phone number: ");
+        var newPhoneNumber = _input.GetInput();
+
+        var oldContact = new Contact { Name = oldName };
+        var newContact = new Contact { Name = newName, PhoneNumber = newPhoneNumber };
+        _efDbManager.UpdateContact(oldContact, newContact);
     }
     
     private void DeleteContact()
