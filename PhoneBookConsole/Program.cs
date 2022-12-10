@@ -5,3 +5,5 @@ using PhoneBookConsole.PhoneBookService;
 Console.WriteLine("Hello, World!");
 
 Menus.DisplayMainMenu();
+
+// TODO: Implement the EfDbManager methods and ContactManager methods
