@@ -4,43 +4,12 @@ using PhoneBookConsole.Models;
 
 namespace PhoneBookConsole.PhoneBookService;
 
-public class ContactManager
+public class ContactService : IContactService
 {
     private readonly IUserInput _input = new UserInput();
     private readonly IDbManager _efDbManager = new EfDbManager();
 
-    public void LaunchProgram()
-    {
-        Menus.DisplayMainMenu();
-        var choice = _input.GetInput();
-        while (choice != "0")
-        {
-            switch (choice)
-            {
-                case "1":
-                    ViewAllContacts();
-                    break;
-                case "2":
-                    AddNewContact();
-                    break;
-                case "3":
-                    EditContact();
-                    break;
-                case "4":
-                    DeleteContact();
-                    break;
-                default:
-                    Console.Clear();
-                    Console.WriteLine("Wrong input!");
-                    break;
-            }
-
-            Menus.DisplayMainMenu();
-            choice = _input.GetInput();
-        }
-    }
-
-    private void ViewAllContacts()
+    public void ViewAllContacts()
     {
         Console.Clear();
         var contactList = _efDbManager.GetContacts();
@@ -54,7 +23,7 @@ public class ContactManager
         Console.ReadLine();
     }
 
-    private void AddNewContact()
+    public void AddNewContact()
     {
         Console.Clear();
         Console.Write("Enter name: ");
@@ -68,7 +37,7 @@ public class ContactManager
         _efDbManager.AddNewContact(contact);
     }
 
-    private void EditContact()
+    public void EditContact()
     {
         Console.Clear();
         Console.Write("Enter name of contact to edit: ");
@@ -85,7 +54,7 @@ public class ContactManager
         _efDbManager.UpdateContact(oldContact, newContact);
     }
 
-    private void DeleteContact()
+    public void DeleteContact()
     {
         Console.Clear();
         Console.Write("Enter name of contact to delete: ");
