@@ -26,12 +26,9 @@ public class ContactService : IContactService
     public void AddNewContact()
     {
         Console.Clear();
-        Console.Write("Enter name: ");
-        var name = _input.GetInput();
-        Console.Write("Enter phone number: ");
-        var phoneNumber = _input.GetInput();
-        Console.Write("Enter email: ");
-        var email = _input.GetInput();
+        var name = _input.GetName();
+        var phoneNumber = _input.GetPhoneNumber();
+        var email = _input.GetEmail();
 
         var contact = new Contact { Name = name, PhoneNumber = phoneNumber, Email = email };
         _efDbManager.AddNewContact(contact);
@@ -40,14 +37,13 @@ public class ContactService : IContactService
     public void EditContact()
     {
         Console.Clear();
-        Console.Write("Enter name of contact to edit: ");
-        var oldName = _input.GetInput();
-        Console.Write("Enter new name: ");
-        var newName = _input.GetInput();
-        Console.Write("Enter new phone number: ");
-        var newPhoneNumber = _input.GetInput();
-        Console.Write("Enter new email: ");
-        var newEmail = _input.GetInput();
+        ViewAllContacts();
+        Console.WriteLine("Enter name of contact to edit");
+        var oldName = _input.GetName();
+        Console.WriteLine("Enter new details of contact");
+        var newName = _input.GetName();
+        var newPhoneNumber = _input.GetPhoneNumber();
+        var newEmail = _input.GetEmail();
 
         var oldContact = new Contact { Name = oldName };
         var newContact = new Contact { Name = newName, PhoneNumber = newPhoneNumber, Email = newEmail };
@@ -57,8 +53,9 @@ public class ContactService : IContactService
     public void DeleteContact()
     {
         Console.Clear();
-        Console.Write("Enter name of contact to delete: ");
-        var contactToDelete = _input.GetInput();
+        ViewAllContacts();
+        Console.WriteLine("Enter name of contact to delete");
+        var contactToDelete = _input.GetName();
 
         var contact = new Contact { Name = contactToDelete };
         _efDbManager.DeleteContact(contact);
