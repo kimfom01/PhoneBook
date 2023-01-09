@@ -31,6 +31,8 @@ public class ContactController : IContactController
                 default:
                     Console.Clear();
                     Console.WriteLine("Wrong input!");
+                    Console.WriteLine("Press Enter to continue...");
+                    Console.ReadLine();
                     break;
             }
 
