@@ -1,9 +1,9 @@
 namespace PhoneBookConsole.Input;
 
-public class UserInput
+public class UserInput : IUserInput
 {
     public string GetInput()
     {
-       return Console.ReadLine().Trim();
+        return Console.ReadLine().Trim();
     }
 }

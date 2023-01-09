@@ -6,7 +6,7 @@ namespace PhoneBookConsole.PhoneBookService;
 
 public class ContactManager
 {
-    private readonly UserInput _input = new UserInput();
+    private readonly IUserInput _input = new UserInput();
     private readonly IDbManager _efDbManager = new EfDbManager();
 
     public void LaunchProgram()
